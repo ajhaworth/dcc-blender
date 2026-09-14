@@ -31,7 +31,9 @@ def step():
     if todo:
         win.workspace = todo.pop()
         return 0.1
-    win.workspace = bpy.data.workspaces['Layout']
+    if win.workspace.name != 'Layout':       # switch is deferred a tick; save only once Layout is live
+        win.workspace = bpy.data.workspaces['Layout']
+        return 0.1
     bpy.ops.wm.save_userpref()
     bpy.ops.wm.save_homefile()
     os._exit(0)  # skip the "unsaved changes" quit prompt
