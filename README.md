@@ -20,4 +20,6 @@ Everything Blender saves lands in `portable/`, so it shows up in `git status`:
 | Preferences → Keymap → "+" add preset | `portable/scripts/presets/keyconfig/<name>.py` |
 | `bin/keymap-export` | `portable/scripts/presets/keyconfig/dcc.py` (user changes only, text diff) |
 
+`setup.py` is how the startup file/prefs were first generated (Industry Compatible keymap, no timeline, env-art workspaces only); re-run it to reset.
+
 Extensions install into `portable/extensions/` (ignored); the source of truth is `extensions.txt`.
