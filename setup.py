@@ -24,6 +24,7 @@ def step():
     for area in win.screen.areas:
         if area.type == 'VIEW_3D':
             area.spaces[0].overlay.show_stats = True   # poly/vert counts in viewport
+            area.spaces[0].show_gizmo_navigate = False # hide axis ball + zoom/pan/camera/persp buttons
     for area in [a for a in win.screen.areas if a.ui_type == 'TIMELINE']:
         with bpy.context.temp_override(window=win, area=area):
             bpy.ops.screen.area_close()
