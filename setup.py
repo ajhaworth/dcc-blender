@@ -9,11 +9,10 @@ p.view.show_splash = False
 p.inputs.use_zoom_to_mouse = True
 p.edit.undo_steps = 128
 
-# scene: metric, no default cube
+# scene: metric, completely empty (no objects, no collections)
 sc = bpy.context.scene
 sc.unit_settings.system, sc.unit_settings.scale_length = 'METRIC', 1.0
-if 'Cube' in bpy.data.objects:
-    bpy.data.objects.remove(bpy.data.objects['Cube'])
+bpy.data.batch_remove(list(bpy.data.objects) + list(bpy.data.collections))
 
 # workspaces not needed for environment art
 bpy.data.batch_remove([ws for ws in bpy.data.workspaces if ws.name in ('Animation', 'Compositing', 'Scripting')])
