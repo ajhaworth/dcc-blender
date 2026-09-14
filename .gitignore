@@ -1,0 +1,7 @@
+blender/
+portable/extensions/
+portable/cache/
+portable/config/recent-*.txt
+portable/config/platform_support.txt
+.DS_Store
+portable/scripts/addons/

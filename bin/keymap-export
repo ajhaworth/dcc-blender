@@ -1,0 +1,4 @@
+#!/bin/sh
+# Dump the active keymap (user modifications only) to a tracked text preset.
+out="$(cd "$(dirname "$0")/.." && pwd)/portable/scripts/presets/keyconfig/dcc.py"
+exec "$(dirname "$0")/blender" -b --python-expr "import bpy; bpy.ops.preferences.keyconfig_export(filepath='$out', all=False); print('wrote $out')"

@@ -1,0 +1,6 @@
+# One plugin per line. Lines starting with # are ignored.
+#   blender_org <extension id>     -> from extensions.blender.org
+#   github <owner/repo>            -> latest release .zip asset (fallback: repo zipball)
+# Examples:
+# blender_org node_wrangler
+# github sidefx/blender-houdini-engine
