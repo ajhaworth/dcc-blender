@@ -1,6 +1,9 @@
 # One plugin per line. Lines starting with # are ignored.
 #   blender_org <extension id>     -> from extensions.blender.org
 #   github <owner/repo>            -> latest release .zip asset (fallback: repo zipball)
+#   forgejo <host/owner/repo>      -> latest release .zip asset from a Forgejo/Gitea host
 # Examples:
 # blender_org node_wrangler
 # github sidefx/blender-houdini-engine
+# official Blender Lab MCP add-on; install.sh step 6 registers its server with Claude Code
+forgejo projects.blender.org/lab/blender_mcp

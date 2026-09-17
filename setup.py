@@ -8,6 +8,7 @@ p = bpy.context.preferences
 p.view.show_splash = False
 p.inputs.use_zoom_to_mouse = True
 p.edit.undo_steps = 128
+p.system.use_online_access = True  # MCP add-on refuses to open its socket offline
 
 
 # scene: metric, completely empty (no objects, no collections)
