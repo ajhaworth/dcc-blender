@@ -2,12 +2,13 @@
 import bpy, os
 
 # preferences
-kc = os.path.join(bpy.utils.system_resource('SCRIPTS'), 'presets', 'keyconfig', 'Industry_Compatible.py')
-bpy.ops.preferences.keyconfig_activate(filepath=kc)
+# keymap: dcc.py is a full preset (Industry Compatible + our edits). Change keys in Preferences > Keymap, then `bin/keymap-export` and commit.
+bpy.ops.preferences.keyconfig_activate(filepath=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'portable', 'scripts', 'presets', 'keyconfig', 'dcc.py'))
 p = bpy.context.preferences
 p.view.show_splash = False
 p.inputs.use_zoom_to_mouse = True
 p.edit.undo_steps = 128
+
 
 # scene: metric, completely empty (no objects, no collections)
 sc = bpy.context.scene

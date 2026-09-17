@@ -6,3 +6,4 @@ portable/config/platform_support.txt
 .DS_Store
 portable/scripts/addons/
 portable/config/bookmarks.txt
+__pycache__/
