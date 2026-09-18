@@ -7,6 +7,7 @@ bpy.ops.wm.read_homefile(use_factory_startup=True)  # start from the factory sce
 bpy.ops.preferences.keyconfig_activate(filepath=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'portable', 'scripts', 'presets', 'keyconfig', 'dcc.py'))
 p = bpy.context.preferences
 p.view.show_splash = False
+p.view.show_navigate_ui = False   # drop the zoom/pan/camera/persp buttons; the axis gizmo stays
 p.inputs.use_zoom_to_mouse = True
 p.edit.undo_steps = 128
 p.system.use_online_access = True  # MCP add-on refuses to open its socket offline
@@ -36,7 +37,6 @@ def step():
         if area.type == 'VIEW_3D':
             sp, sh = area.spaces[0], area.spaces[0].shading
             sp.overlay.show_stats = True   # poly/vert counts in viewport
-            sp.show_gizmo_navigate = False # hide axis ball + zoom/pan/camera/persp buttons
             sp.clip_end = 10000            # large outdoor environments
             sh.light, sh.show_cavity, sh.cavity_type = 'MATCAP', True, 'BOTH'  # read surface form while modeling
     for area in [a for a in win.screen.areas if a.ui_type == 'TIMELINE']:

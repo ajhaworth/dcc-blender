@@ -380,7 +380,7 @@ keyconfig_data = \
     ("view3d.pastebuffer", {"type": 'V', "value": 'PRESS', "oskey": True}, None),
     ("view3d.pastebuffer", {"type": 'V', "value": 'PRESS', "ctrl": True}, None),
     ("wm.call_menu_pie",
-     {"type": 'X', "value": 'PRESS', "shift": True},
+     {"type": 'V', "value": 'PRESS'},
      {"properties":
       [("name", 'VIEW3D_MT_snap_pie'),
        ],
@@ -406,6 +406,14 @@ keyconfig_data = \
      {"type": 'X', "value": 'PRESS'},
      {"properties":
       [("data_path", 'tool_settings.use_snap'),
+       ],
+      },
+     ),
+    ("wm.call_panel",
+     {"type": 'X', "value": 'PRESS', "shift": True},
+     {"properties":
+      [("name", 'VIEW3D_PT_snapping'),
+       ("keep_open", False),
        ],
       },
      ),
@@ -7025,7 +7033,7 @@ keyconfig_data = \
       },
      ),
     ("wm.context_toggle",
-     {"type": 'O', "value": 'PRESS'},
+     {"type": 'S', "value": 'PRESS'},
      {"properties":
       [("data_path", 'tool_settings.use_proportional_edit'),
        ],
@@ -12021,6 +12029,13 @@ keyconfig_data = \
        ],
       },
      ),
+    ("wm.call_menu_pie",
+     {"type": 'S', "value": 'PRESS'},
+     {"properties":
+      [("name", 'VIEW3D_MT_dcc_pivot'),
+       ],
+      },
+     ),
     ],
    },
   ),
@@ -14931,7 +14946,7 @@ keyconfig_data = \
      ),
     ("sequencer.slip", {"type": 'R', "value": 'PRESS'}, None),
     ("wm.context_set_int",
-     {"type": 'O', "value": 'PRESS'},
+     {"type": 'S', "value": 'PRESS'},
      {"properties":
       [("data_path", 'scene.sequence_editor.overlay_frame'),
        ("value", 0),
