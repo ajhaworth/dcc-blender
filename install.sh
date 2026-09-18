@@ -3,7 +3,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 REPO=$PWD
-BASE=https://mirrors.dotsrc.org/blender/release   # download.blender.org sits behind a Cloudflare JS challenge; official mirror
+BASE=https://ftp.nluug.nl/pub/graphics/blender/release   # download.blender.org sits behind a Cloudflare JS challenge and mirrors.dotsrc.org started 403ing listings (Sep 2026); official mirror
 ARCH=$([ "$(uname -m)" = arm64 ] && echo arm64 || echo x64)
 get() { curl -fsSL "$@"; }
 
@@ -17,7 +17,8 @@ if [ "$(cat blender/VERSION 2>/dev/null)" != "$dmg" ]; then
   echo "installing $dmg"
   tmp=$(mktemp -d); get -o "$tmp/b.dmg" "$BASE/$series$dmg"
   mnt=$(hdiutil attach -nobrowse -readonly "$tmp/b.dmg" | awk -F'\t' '/\/Volumes\//{print $NF}')
-  rm -rf blender && mkdir blender && ditto "$mnt/Blender.app" blender/Blender.app
+  mkdir -p blender; rm -rf blender/Blender.app   # only the bundle: rm -rf of the dir races Finder's .DS_Store and fails
+  ditto "$mnt/Blender.app" blender/Blender.app   # one statement per line so set -e aborts before VERSION is written
   hdiutil detach "$mnt" -quiet; rm -rf "$tmp"
   echo "$dmg" > blender/VERSION
 fi
