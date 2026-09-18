@@ -11,6 +11,5 @@ forgejo projects.blender.org/lab/blender_mcp
 blender_org bool_tool
 blender_org looptools
 blender_org extra_mesh_objects
-blender_org f2
 blender_org edit_mesh_tools
 blender_org copy_attributes_menu
